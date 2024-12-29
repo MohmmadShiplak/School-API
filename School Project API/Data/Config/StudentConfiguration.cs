@@ -38,7 +38,7 @@ public class StudentConfiguration : IEntityTypeConfiguration<Student>
 
 
 
-        //builder.HasMany(s => s.Subjects)
+        //builder.HasMany(j => j.Subjects)
         //         .WithMany(x => x.Students)
         //          .UsingEntity<StudentSubjects>();
 

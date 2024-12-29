@@ -26,7 +26,7 @@ namespace School_Project_API.Entities
         public AccessCard? AccessCard { get; set; }
 
 
-     //   public ICollection<Subject> Subjects { get; set; }
+        public ICollection<Subject> Subjects { get; set; }
 
 
 

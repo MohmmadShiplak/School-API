@@ -323,6 +323,32 @@
     "EndpointName": "GetStudentsInfoByID"
   },
   {
+    "ContainingType": "School_Project_API.Controllers.StudentController",
+    "Method": "DeleteStudent",
+    "RelativePath": "api/Student/{Id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "School_Project_API.Entities.Student",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "School_Project_API.Controllers.SubjectController",
     "Method": "AddSubjects",
     "RelativePath": "api/Subject",
