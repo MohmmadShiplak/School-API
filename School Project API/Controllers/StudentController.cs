@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using School_Project_API.DTO;
@@ -33,6 +34,7 @@ namespace School_Project_API.Controllers
                 FirstOrDefaultAsync(s => s.Id == Id);
 
 
+
             if (Student != null)
                 return Ok(Student);
             else
@@ -45,7 +47,8 @@ namespace School_Project_API.Controllers
         public async Task<ActionResult<Student>> GetAllStudents()
         {
             var Students = await _Context.Students
-    .Include(d => d.AccessCard) // Corrected .Include() syntax
+    .Include(d => d.AccessCard)
+     // Corrected .Include() syntax
     .Select(d => new Student
     {
         Id = d.Id,
@@ -147,8 +150,24 @@ namespace School_Project_API.Controllers
             // Return the updated student DTO, maybe with additional transformations
             return Ok(student);
 
-
-
         }
+
+        [HttpDelete("{Id}")]
+        public async Task<ActionResult<Student>> DeleteStudent(int Id)
+        {
+
+
+             var StudentID = await _Context.Students.FindAsync(Id);
+
+            if (StudentID == null)
+                return NotFound($"Student with {Id}  not Found ");
+
+            
+             _Context.Students.Remove(StudentID);
+
+
+           return Ok( await _Context.SaveChangesAsync());  
+        }
+
     }
 }

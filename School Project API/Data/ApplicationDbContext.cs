@@ -14,7 +14,7 @@ public class ApplicationDbContext: DbContext
       
        public DbSet<Department>Departments { get; set; }   
 
-  //  public DbSet<StudentSubjects>StudentSubjects { get; set; }  
+      public DbSet<StudentSubjects>StudentSubjects { get; set; }  
 
 
        public DbSet<Subject> Subjects { get; set; }
